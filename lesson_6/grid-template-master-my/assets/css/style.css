@@ -787,14 +787,7 @@ input:focus {
 }
 
 .posts__grid {
-    /*оригинал: display: grid;
-    Я добавила: 
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;*/
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
     padding-bottom: 20px;
     grid-gap: 20px;
 }
@@ -856,9 +849,7 @@ input:focus {
 }
 
 .post-item__caption {
-    /*оригинал: display: grid;
-    Я добавила: display: flex;*/
-    display: flex;
+    display: grid;
     -ms-flex-line-pack: center;
     align-content: center;
     padding: 20px;
