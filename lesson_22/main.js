@@ -20,8 +20,8 @@
     //спойлер
     $(document).ready(function() {
         $('.spoiler_title').click(function() { // при клике по заголовку спойлера
-            let $show1 = $(this).attr('show');
-            if ($show1 == 1) { // если отображен, то прячем
+            var show1 = $(this).attr('show');
+            if (show1 == 1) { // если отображен, то прячем
                 $(this).attr('show', 0);
                 $('.spoiler_block').slideUp(300);
             } else { // если спрятан, то показываем
