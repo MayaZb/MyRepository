@@ -1,10 +1,10 @@
-let slideItems = $('.slide');
-let indContainer = $('.indicators');
-let indItems = $('.indicator');
+let $slideItems = $('.slide');
+let $indContainer = $('.indicators');
+let $indItems = $('.indicator');
 
 
-let currentSlide = 0;
-let carouselInterval = 2000;
+let $currentSlide = 0;
+let $carouselInterval = 2000;
 
 const SPACE = ' ';
 const LEFT_ARROW = 'ArrowLeft';
@@ -13,41 +13,42 @@ const FA_PAUSE = '<i class="far fa-pause-circle"></i>';
 const FA_PLAY = '<i class="far fa-play-circle"></i>';
 
 // activate controls, if javascript is enabled
-indContainer.attr('style.display', 'flex');
+$indContainer.attr('style.display', 'flex');
 $('.controls').attr('style.display', 'block'); // block
 
 // carousel basic engine
 let gotoNSlide = (n) => {
-    slideItems.eq(currentSlide).toggleClass("active");
-    indItems.eq(currentSlide).toggleClass("active");
-    currentSlide = (n + slideItems.length) % slideItems.length;
-    slideItems.eq(currentSlide).toggleClass("active");
-    indItems.eq(currentSlide).toggleClass("active");
+    $slideItems.eq($currentSlide).toggleClass("active");
+    $indItems.eq($currentSlide).toggleClass("active");
+    $currentSlide = (n + $slideItems.length) % $slideItems.length;
+    $slideItems.eq($currentSlide).toggleClass("active");
+    $indItems.eq($currentSlide).toggleClass("active");
 };
 
-let gotoNextSlide = () => gotoNSlide(currentSlide + 1);
-let gotoPrevSlide = () => gotoNSlide(currentSlide - 1);
+let gotoNextSlide = () => gotoNSlide($currentSlide + 1);
+let gotoPrevSlide = () => gotoNSlide($currentSlide - 1);
 
 // controls
 let playbackStatus = true;
-let pausePlayBtn = $('#pause-play-btn');
-let nextBtn = $('#next-btn');
-let prevBtn = $('#prev-btn');
+let $pausePlayBtn = $('#pause-play-btn');
+let $nextBtn = $('#next-btn');
+let $prevBtn = $('#prev-btn');
 
-let slideInterval = setInterval(gotoNextSlide, carouselInterval);
+let slideInterval = setInterval(gotoNextSlide, $carouselInterval);
 
 let pauseSlideShow = () => {
+    console.log('hello');
     if (playbackStatus) {
-        pausePlayBtn.html(FA_PLAY);
+        $pausePlayBtn.html(FA_PLAY);
         playbackStatus = !playbackStatus;
         clearInterval(slideInterval);
     }
 };
 
 let playSlideShow = () => {
-    pausePlayBtn.html(FA_PAUSE);
+    $pausePlayBtn.html(FA_PAUSE);
     playbackStatus = !playbackStatus;
-    slideInterval = setInterval(gotoNextSlide, carouselInterval);
+    slideInterval = setInterval(gotoNextSlide, $carouselInterval);
 };
 
 let clickPausePlayBtn = () => playbackStatus ? pauseSlideShow() : playSlideShow();
@@ -62,23 +63,21 @@ let clickPrevBtn = () => {
     gotoPrevSlide();
 };
 
-pausePlayBtn.on('click', clickPausePlayBtn);
-nextBtn.on('click', clickNextBtn);
-prevBtn.on('click', clickPrevBtn);
+$pausePlayBtn.on('click', clickPausePlayBtn);
+$nextBtn.on('click', clickNextBtn);
+$prevBtn.on('click', clickPrevBtn);
 
 
 // indicators
 let clickIndicatorBtn = (e) => {
-    let target = e.target;
-
-    if (target.classList.contains('indicator')) {
-        pauseSlideShow();
-        gotoNSlide(+($(target)).attr('data-slide-to'));
-    }
-};
+    let $target = e.target;
+    let $name = $($target).attr("data-slide-to");
+    pauseSlideShow();
+    gotoNSlide(+$name);
+}
 
 // use delegation to optimize the event handler
-indContainer.on('click', clickIndicatorBtn);
+$indContainer.on('click', clickIndicatorBtn);
 
 // set keyboard controls
 let pressKeyControl = (e) => {
@@ -90,7 +89,7 @@ let pressKeyControl = (e) => {
 $(document).on('keydown', pressKeyControl);
 
 // add swipe support
-let carousel = $('.carousel');
+let $carousel = $('.carousel');
 let swipeStartX = null;
 let swipeEndX = null;
 
@@ -104,5 +103,5 @@ let swipeEnd = (e) => {
     swipeStartX - swipeEndX < -100 && clickNextBtn();
 };
 
-carousel.on('touchstart', swipeStart);
-carousel.on('touchend', swipeEnd);
+$carousel.on('touchstart', swipeStart);
+$carousel.on('touchend', swipeEnd);
