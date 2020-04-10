@@ -68,11 +68,19 @@ $prevBtn.on('click', clickPrevBtn);
 
 
 // indicators
-//let clickIndicatorBtn = (e) => {
-let clickIndicatorBtn = (e) => {
+/*let clickIndicatorBtn = (e) => {
     let $target = e.target;
     if ($($target).hasClass('indicator')) {
         let num = $($target).attr("data-slide-to");
+        pauseSlideShow();
+        gotoNSlide(+num);
+    }
+}*/
+
+let clickIndicatorBtn = (e) => {
+    let $target = $(e.target);
+    if ($target.hasClass('indicator')) {
+        let num = $target.attr("data-slide-to");
         pauseSlideShow();
         gotoNSlide(+num);
     }
