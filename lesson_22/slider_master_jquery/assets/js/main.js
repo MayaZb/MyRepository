@@ -3,8 +3,8 @@ let $indContainer = $('.indicators');
 let $indItems = $('.indicator');
 
 
-let $currentSlide = 0;
-let $carouselInterval = 2000;
+let currentSlide = 0;
+let carouselInterval = 2000;
 
 const SPACE = ' ';
 const LEFT_ARROW = 'ArrowLeft';
@@ -18,15 +18,15 @@ $('.controls').attr('style.display', 'block'); // block
 
 // carousel basic engine
 let gotoNSlide = (n) => {
-    $slideItems.eq($currentSlide).toggleClass("active");
-    $indItems.eq($currentSlide).toggleClass("active");
-    $currentSlide = (n + $slideItems.length) % $slideItems.length;
-    $slideItems.eq($currentSlide).toggleClass("active");
-    $indItems.eq($currentSlide).toggleClass("active");
+    $slideItems.eq(currentSlide).toggleClass("active");
+    $indItems.eq(currentSlide).toggleClass("active");
+    currentSlide = (n + $slideItems.length) % $slideItems.length;
+    $slideItems.eq(currentSlide).toggleClass("active");
+    $indItems.eq(currentSlide).toggleClass("active");
 };
 
-let gotoNextSlide = () => gotoNSlide($currentSlide + 1);
-let gotoPrevSlide = () => gotoNSlide($currentSlide - 1);
+let gotoNextSlide = () => gotoNSlide(currentSlide + 1);
+let gotoPrevSlide = () => gotoNSlide(currentSlide - 1);
 
 // controls
 let playbackStatus = true;
@@ -34,10 +34,9 @@ let $pausePlayBtn = $('#pause-play-btn');
 let $nextBtn = $('#next-btn');
 let $prevBtn = $('#prev-btn');
 
-let slideInterval = setInterval(gotoNextSlide, $carouselInterval);
+let slideInterval = setInterval(gotoNextSlide, carouselInterval);
 
 let pauseSlideShow = () => {
-    console.log('hello');
     if (playbackStatus) {
         $pausePlayBtn.html(FA_PLAY);
         playbackStatus = !playbackStatus;
@@ -48,7 +47,7 @@ let pauseSlideShow = () => {
 let playSlideShow = () => {
     $pausePlayBtn.html(FA_PAUSE);
     playbackStatus = !playbackStatus;
-    slideInterval = setInterval(gotoNextSlide, $carouselInterval);
+    slideInterval = setInterval(gotoNextSlide, carouselInterval);
 };
 
 let clickPausePlayBtn = () => playbackStatus ? pauseSlideShow() : playSlideShow();
@@ -69,11 +68,14 @@ $prevBtn.on('click', clickPrevBtn);
 
 
 // indicators
+//let clickIndicatorBtn = (e) => {
 let clickIndicatorBtn = (e) => {
     let $target = e.target;
-    let $name = $($target).attr("data-slide-to");
-    pauseSlideShow();
-    gotoNSlide(+$name);
+    if ($($target).hasClass('indicator')) {
+        let num = $($target).attr("data-slide-to");
+        pauseSlideShow();
+        gotoNSlide(+num);
+    }
 }
 
 // use delegation to optimize the event handler
