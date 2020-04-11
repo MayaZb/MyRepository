@@ -87,13 +87,19 @@ $prevBtn.on('click', clickPrevBtn);
     }
 }*/
 
-function clickIndicatorBtn() {
+/*function clickIndicatorBtn() {
     let $target = $(this);
     if ($target.hasClass('indicator')) {
         let num = $target.attr("data-slide-to");
         pauseSlideShow();
         gotoNSlide(+num);
     }
+}*/
+
+function clickIndicatorBtn() {
+    num = $(this).attr("data-slide-to");
+    pauseSlideShow();
+    gotoNSlide(+num);
 }
 
 //$indContainer.on('click', clickIndicatorBtn);
