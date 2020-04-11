@@ -1,5 +1,6 @@
 let $slideItems = $('.slide');
-let $indContainer = $('.indicators');
+//let $indContainer = $('.indicators');
+let $indContainer = $('#indmain');
 let $indItems = $('.indicator');
 
 
@@ -77,8 +78,17 @@ $prevBtn.on('click', clickPrevBtn);
     }
 }*/
 
-let clickIndicatorBtn = (e) => {
+/*let clickIndicatorBtn = (e) => {
     let $target = $(e.target);
+    if ($target.hasClass('indicator')) {
+        let num = $target.attr("data-slide-to");
+        pauseSlideShow();
+        gotoNSlide(+num);
+    }
+}*/
+
+function clickIndicatorBtn() {
+    let $target = $(this);
     if ($target.hasClass('indicator')) {
         let num = $target.attr("data-slide-to");
         pauseSlideShow();
@@ -86,8 +96,9 @@ let clickIndicatorBtn = (e) => {
     }
 }
 
+//$indContainer.on('click', clickIndicatorBtn);
 // use delegation to optimize the event handler
-$indContainer.on('click', clickIndicatorBtn);
+$indContainer.on('click', 'li', clickIndicatorBtn);
 
 // set keyboard controls
 let pressKeyControl = (e) => {
