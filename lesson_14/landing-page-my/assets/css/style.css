@@ -288,8 +288,8 @@ a:focus {
 .gallery-item__link {
     position: relative;
     top: -50%;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
+    -webkit-inline-box: display;
+    -ms-inline-flexbox: display;
     display: inline-flex;
     width: 45px;
     height: 45px;
