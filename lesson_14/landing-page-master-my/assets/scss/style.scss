@@ -15,14 +15,14 @@ $background_color_1: #fefefe;
 $background_color_2: #ee3b24;
 $background_color_3: #010101;
 $background_color_4: #e5e5e5;
-$background_color_5: rgba(1, 1, 1, 0.75);
+$background_color_5: rgba(1, 1, 1, 0.C);
 $background_color_6: #ececec;
 $background_color_7: #d8d8d8;
 $background_color_8: #282828;
 $background_color_9: #343434;
 $background_color_10: transparent;
-$background_color_11: rgba(1, 1, 1, 0.85);
-$border_color_1: rgba(254, 254, 254, 0.75);
+$background_color_11: rgba(1, 1, 1, 0.D9);
+$border_color_1: rgba(254, 254, 254, 0.C);
 $border_color_2: #ee3b24;
 h1 {
     color: $color_1;
@@ -56,47 +56,31 @@ h6 {
 }
 
 .about {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -ms-flex-line-pack: center;
     align-content: center;
 }
 
 .features {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -ms-flex-line-pack: center;
     align-content: center;
     background-color: $background_color_4;
 }
 
 .gallery {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -ms-flex-line-pack: center;
     align-content: center;
 }
 
 .blog {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -ms-flex-line-pack: center;
     align-content: center;
     background-color: $background_color_6;
     >.container {
@@ -106,24 +90,16 @@ h6 {
 }
 
 .advantages__content {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -ms-flex-line-pack: center;
     align-content: center;
 }
 
 .contacts {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -ms-flex-line-pack: center;
     align-content: center;
 }
 
@@ -186,6 +162,10 @@ h6 {
     .nav-link {
         &::after {
             position: absolute;
+            bottom: 0;
+            height: 0;
+            content: "";
+            opacity: 0;
             background-color: $background_color_1;
         }
         position: relative;
@@ -198,8 +178,6 @@ h6 {
                     color: $color_2;
                     &::after {
                         height: 3px;
-                        -webkit-transition: bottom 0.5s, opacity 0.5s;
-                        -o-transition: bottom 0.5s, opacity 0.5s;
                         transition: bottom 0.5s, opacity 0.5s;
                         opacity: 1;
                     }
@@ -210,8 +188,6 @@ h6 {
                     color: $color_2;
                     &::after {
                         height: 3px;
-                        -webkit-transition: bottom 0.5s, opacity 0.5s;
-                        -o-transition: bottom 0.5s, opacity 0.5s;
                         transition: bottom 0.5s, opacity 0.5s;
                         opacity: 1;
                     }
@@ -219,10 +195,6 @@ h6 {
             }
         }
     }
-    -webkit-transition: background-color 0.5s,
-    padding 0.25s;
-    -o-transition: background-color 0.5s,
-    padding 0.25s;
     transition: background-color 0.5s,
     padding 0.25s;
 }
@@ -248,8 +220,6 @@ h6 {
     display: none;
     width: 45px;
     height: 45px;
-    -webkit-transition: opacity 0.3s;
-    -o-transition: opacity 0.3s;
     transition: opacity 0.3s;
     opacity: 0.2;
     border-bottom: none;
@@ -259,8 +229,6 @@ h6 {
         position: relative;
         top: 15px;
         margin: 0;
-        -webkit-transition: top 0.3s;
-        -o-transition: top 0.3s;
         transition: top 0.3s;
         color: $color_2;
         font-size: 1rem;
@@ -395,11 +363,7 @@ a {
 
 .gallery-item__image {
     width: 100%;
-    -webkit-transition: -webkit-transform 0.5s;
-    -o-transition: transform 0.5s;
-    transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
-    transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 .gallery-item__caption {
@@ -408,8 +372,6 @@ a {
     right: 0;
     bottom: 0;
     left: 0;
-    -webkit-transition: opacity 4.5s;
-    -o-transition: opacity 4.5s;
     transition: opacity 4.5s;
     text-align: center;
     opacity: 0;
@@ -422,8 +384,6 @@ a {
     bottom: -50%;
     left: 30px;
     margin-bottom: 0;
-    -webkit-transition: bottom 2.5s;
-    -o-transition: bottom 2.5s;
     transition: bottom 2.5s;
     color: $color_2;
     font-weight: bold;
@@ -432,21 +392,13 @@ a {
 .gallery-item__link {
     position: relative;
     top: -50%;
-    -webkit-inline-box: display;
-    -ms-inline-flexbox: display;
     display: inline-flex;
     width: 45px;
     height: 45px;
-    -webkit-transition: top 2.5s;
-    -o-transition: top 2.5s;
     transition: top 2.5s;
     color: $color_2;
     background-color: $background_color_2;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     &:hover {
         color: $color_2;
@@ -459,8 +411,6 @@ a {
 .gallery-item {
     &:hover {
         .gallery-item__image {
-            -webkit-transform: scale(1.8);
-            -ms-transform: scale(1.8);
             transform: scale(1.8);
         }
         .gallery-item__caption {
@@ -480,10 +430,7 @@ a {
     padding: 0;
     img {
         width: 100%;
-        -webkit-transition: -webkit-filter 0.5s, -webkit-transform 0.5s;
-        -o-transition: filter 0.5s, transform 0.5s;
-        transition: filter 0.5s, transform 0.5s, -webkit-filter 0.5s, -webkit-transform 0.5s;
-        -webkit-filter: saturate(0.75);
+        transition: filter 0.5s, transform 0.5s;
         filter: saturate(0.75);
     }
 }
@@ -502,8 +449,6 @@ a {
         bottom: 0;
         left: 0;
         content: "";
-        -webkit-transition: background-color 0.25s;
-        -o-transition: background-color 0.25s;
         transition: background-color 0.25s;
     }
 }
@@ -523,10 +468,7 @@ a {
     &:hover {
         .blog-item__image {
             img {
-                -webkit-transform: scale(1.25);
-                -ms-transform: scale(1.25);
                 transform: scale(1.25);
-                -webkit-filter: saturate(1.5);
                 filter: saturate(1.5) contrast(90%);
             }
         }
@@ -548,10 +490,7 @@ a {
     &:focus {
         .blog-item__image {
             img {
-                -webkit-transform: scale(1.25);
-                -ms-transform: scale(1.25);
                 transform: scale(1.25);
-                -webkit-filter: saturate(1.5);
                 filter: saturate(1.5) contrast(90%);
             }
         }
@@ -587,8 +526,6 @@ a {
 }
 
 .advantage-item__icon {
-    -webkit-box-flex: 0;
-    -ms-flex-positive: 0;
     flex-grow: 0;
     i {
         margin-top: 7.5px;
@@ -681,8 +618,6 @@ a {
         margin-bottom: 45px;
     }
     .feature__icon {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
         width: 80px;
         height: 90px;
@@ -690,13 +625,8 @@ a {
         color: $color_8;
         background: #ee3b24;
         font-size: 2rem;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
         justify-content: center;
-        -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     }
     .blog-item__excerpt {
@@ -940,8 +870,6 @@ a {
         margin-bottom: 30px;
     }
     .feature__icon {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
         width: 68px;
         height: 76.5px;
@@ -949,13 +877,8 @@ a {
         color: $color_8;
         background: #ee3b24;
         font-size: 1.5rem;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
         justify-content: center;
-        -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     }
     .blog-item__image {

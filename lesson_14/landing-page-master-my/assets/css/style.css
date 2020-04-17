@@ -54,10 +54,10 @@ h6 {
 
 .header-navbar .nav-link::after {
     position: absolute;
-    /*bottom: 0;
+    bottom: 0;
     height: 0;
-    content: "";*/
-    /*opacity: 0;*/
+    content: "";
+    opacity: 0;
     background-color: #fefefe;
 }
 
