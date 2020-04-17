@@ -1,148 +1,63 @@
 $color_1: #010101;
 $color_2: #fefefe;
-$color_3: #ee3b24;
-$color_4: #545454;
-$color_5: #6e6e6e;
-$color_6: #cbcbcb;
-$color_7: #b2b2b2;
-$color_8: #ffffff;
-$font_family_1: "Roboto Slab",
-serif;
-$font_family_2: "Roboto",
+$color_3: #545454;
+$color_4: #6e6e6e;
+$color_5: #cbcbcb;
+$color_6: #b2b2b2;
+$color_7: #ffffff;
+$background_color_1: #ee3b24;
+$border_color_1: rgba(1, 1, 1, 0.C);
+$background_color_2: #e5e5e5;
+$background_color_3: #ececec;
+$background_color_4: #282828;
+$background_color_5: #343434;
+$background_color_6: transparent;
+$background_color_7: rgba(1, 1, 1, 0.D9);
+$font_family_1: "Roboto",
 sans-serif;
-$font_family_3: "Font Awesome 5 Free";
-$background_color_1: #fefefe;
-$background_color_2: #ee3b24;
-$background_color_3: #010101;
-$background_color_4: #e5e5e5;
-$background_color_5: rgba(1, 1, 1, 0.C);
-$background_color_6: #ececec;
-$background_color_7: #d8d8d8;
-$background_color_8: #282828;
-$background_color_9: #343434;
-$background_color_10: transparent;
-$background_color_11: rgba(1, 1, 1, 0.D9);
-$border_color_1: rgba(254, 254, 254, 0.C);
-$border_color_2: #ee3b24;
-h1 {
-    color: $color_1;
-    font-family: $font_family_1;
-}
-
-h2 {
-    color: $color_1;
-    font-family: $font_family_1;
-}
-
-h3 {
-    color: $color_1;
-    font-family: $font_family_1;
-}
-
-h4 {
-    color: $color_1;
-    font-family: $font_family_1;
-}
-
-h5 {
-    color: $color_1;
-    font-family: $font_family_1;
-    font-size: 1.125rem;
-}
-
+$font_family_2: "Font Awesome 5 Free";
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
     color: $color_1;
     font-family: $font_family_1;
 }
 
-.about {
+
+/*@extend*/
+
+.some {
     display: flex;
     min-height: 100vh;
-    flex-wrap: wrap;
-    align-content: center;
 }
 
-.features {
-    display: flex;
-    min-height: 100vh;
-    flex-wrap: wrap;
-    align-content: center;
-    background-color: $background_color_4;
-}
-
-.gallery {
-    display: flex;
-    min-height: 100vh;
-    flex-wrap: wrap;
-    align-content: center;
-}
-
-.blog {
-    display: flex;
-    min-height: 100vh;
-    flex-wrap: wrap;
-    align-content: center;
-    background-color: $background_color_6;
-    >.container {
-        padding-right: 30px;
-        padding-left: 30px;
-    }
-}
-
-.advantages__content {
-    display: flex;
-    min-height: 100vh;
-    flex-wrap: wrap;
-    align-content: center;
-}
-
+.about,
+.features,
+.gallery,
+.blog,
+.advantages__content,
 .contacts {
-    display: flex;
-    min-height: 100vh;
+    @extend .some;
     flex-wrap: wrap;
     align-content: center;
 }
 
-.about__title {
-    text-align: center;
-}
-
-.features__title {
-    text-align: center;
-}
-
-.gallery__title {
-    text-align: center;
-}
-
-.blog__title {
-    text-align: center;
-}
-
-.advantages__title {
-    text-align: center;
-}
-
+.about__title,
+.features__title,
+.gallery__title,
+.blog__title,
+.advantages__title,
 .contacts__title {
     text-align: center;
 }
 
-.features__description {
-    text-align: center;
-}
-
-.gallery__description {
-    text-align: center;
-}
-
-.blog__description {
-    text-align: center;
-}
-
-.advantages__description {
-    text-align: center;
-}
-
+.features__description,
+.gallery__description,
+.blog__description,
+.advantages__description,
 .contacts__description {
     text-align: center;
 }
@@ -159,33 +74,24 @@ h6 {
 }
 
 .header-navbar {
-    .nav-link {
-        &::after {
-            position: absolute;
-            bottom: 0;
-            height: 0;
-            content: "";
-            opacity: 0;
-            background-color: $background_color_1;
-        }
-        position: relative;
-        overflow: hidden;
-    }
     .nav-item {
         &:not(.active) {
-            &:hover {
-                .nav-link {
-                    color: $color_2;
-                    &::after {
-                        height: 3px;
-                        transition: bottom 0.5s, opacity 0.5s;
-                        opacity: 1;
-                    }
-                }
-            }
+            &:hover,
             &:focus {
                 .nav-link {
                     color: $color_2;
+                }
+            }
+        }
+    }
+}
+
+.header-navbar {
+    .nav-item {
+        &:not(.active) {
+            &:hover,
+            &:focus {
+                .nav-link {
                     &::after {
                         height: 3px;
                         transition: bottom 0.5s, opacity 0.5s;
@@ -195,8 +101,6 @@ h6 {
             }
         }
     }
-    transition: background-color 0.5s,
-    padding 0.25s;
 }
 
 .header-navbar--scrolled {
@@ -205,10 +109,8 @@ h6 {
             &::after {
                 height: 3px;
                 opacity: 1;
-                background-color: $background_color_2;
+                background-color: $background_color_1;
             }
-            color: $color_3 !important;
-            text-shadow: 0 0 1px #ee3b24;
         }
     }
 }
@@ -224,7 +126,10 @@ h6 {
     opacity: 0.2;
     border-bottom: none;
     border-radius: 4px;
-    background-color: $background_color_3;
+    background-color: $color_1;
+}
+
+.back2top {
     i {
         position: relative;
         top: 15px;
@@ -233,29 +138,44 @@ h6 {
         color: $color_2;
         font-size: 1rem;
     }
-    &:hover {
-        opacity: 1;
-        i {
-            top: 5px;
-        }
-    }
+}
+
+.back2top {
+    &:hover,
     &:focus {
         opacity: 1;
+    }
+}
+
+.back2top {
+    &:hover,
+    &:focus {
         i {
             top: 5px;
         }
     }
 }
 
+
+/*mixin*/
+
+@mixin paddings {
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+}
+
 .navbar-expand-lg {
     .navbar-nav {
         .nav-item {
-            padding-right: 7.5px;
-            padding-left: 7.5px;
+            @include paddings;
         }
+    }
+}
+
+.navbar-expand-lg {
+    .navbar-nav {
         .nav-link {
-            padding-right: 7.5px;
-            padding-left: 7.5px;
+            @include paddings;
             color: $color_2;
         }
     }
@@ -265,39 +185,67 @@ h6 {
     .navbar-toggler {
         border-color: $border_color_1;
     }
+}
+
+.navbar-dark {
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.75)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     }
 }
 
 .bg-danger {
-    background-color: $background_color_2 !important;
+    background-color: $background_color_1 !important;
 }
 
 .btn-outline-danger {
-    color: $color_3;
-    border-color: $border_color_2 !important;
-    &:hover {
-        background-color: $background_color_2;
-    }
+    color: $background_color_1;
+    border-color: $background_color_1 !important;
+}
+
+.btn-outline-danger {
+    &:hover,
     &:focus {
-        background-color: $background_color_2;
+        background-color: $background_color_1;
+    }
+}
+
+.header-navbar {
+    transition: background-color 0.5s, padding 0.25s;
+}
+
+.header-navbar {
+    .nav-link {
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+.header-navbar--scrolled {
+    .active {
+        .nav-link {
+            color: $background_color_1 !important;
+            text-shadow: 0 0 1px $background_color_1;
+        }
     }
 }
 
 html {
-    font-family: $font_family_2;
+    font-family: $font_family_1;
     font-size: 16px;
 }
 
 body {
-    color: $color_4;
-    font-family: $font_family_2;
+    color: $color_3;
+    font-family: $font_family_1;
 }
 
 section {
     overflow: hidden;
     width: 100%;
+}
+
+h5 {
+    font-size: 1.125rem;
 }
 
 button {
@@ -308,13 +256,13 @@ button {
 
 a {
     color: $color_1;
-    &:hover {
-        text-decoration: none;
-        color: $color_3;
-    }
+}
+
+a {
+    &:hover,
     &:focus {
         text-decoration: none;
-        color: $color_3;
+        color: $background_color_1;
     }
 }
 
@@ -341,15 +289,16 @@ a {
     margin-bottom: 30px;
 }
 
+.features {
+    background-color: $background_color_2;
+}
+
 .feature {
     margin-bottom: 7.5px;
     padding-top: 7.5px;
 }
 
-.feature__title {
-    text-align: center;
-}
-
+.feature__title,
 .feature__description {
     text-align: center;
 }
@@ -372,10 +321,11 @@ a {
     right: 0;
     bottom: 0;
     left: 0;
+    /*Было : transition: opacity 0.5s; Я поменяла на: opacity 4.5s*/
     transition: opacity 4.5s;
     text-align: center;
     opacity: 0;
-    background-color: $background_color_5;
+    background-color: $border_color_1;
 }
 
 .gallery-item__title {
@@ -384,8 +334,9 @@ a {
     bottom: -50%;
     left: 30px;
     margin-bottom: 0;
+    /*Было: transition: bottom 0.5s; Я поменяла на: 2.5s*/
     transition: bottom 2.5s;
-    color: $color_2;
+    color: #fefefe;
     font-weight: bold;
 }
 
@@ -395,14 +346,16 @@ a {
     display: inline-flex;
     width: 45px;
     height: 45px;
+    /*Было: transition: top 0.5s; Я поменяла на: 2.5s*/
     transition: top 2.5s;
     color: $color_2;
-    background-color: $background_color_2;
+    background-color: $background_color_1;
     justify-content: center;
     align-items: center;
-    &:hover {
-        color: $color_2;
-    }
+}
+
+.gallery-item__link {
+    &:hover,
     &:focus {
         color: $color_2;
     }
@@ -413,6 +366,11 @@ a {
         .gallery-item__image {
             transform: scale(1.8);
         }
+    }
+}
+
+.gallery-item {
+    &:hover {
         .gallery-item__caption {
             opacity: 1;
         }
@@ -425,9 +383,23 @@ a {
     }
 }
 
+.blog {
+    background-color: $background_color_3;
+}
+
+.blog {
+    >.container {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
+
 .blog-item__image {
     overflow: hidden;
     padding: 0;
+}
+
+.blog-item__image {
     img {
         width: 100%;
         transition: filter 0.5s, transform 0.5s;
@@ -440,7 +412,10 @@ a {
     z-index: 0;
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: $background_color_1;
+    background-color: $color_2;
+}
+
+.blog-item__post {
     &::before {
         position: absolute;
         z-index: -1;
@@ -455,38 +430,17 @@ a {
 
 .blog-item__date {
     margin: 15px 0;
-    color: $color_5;
-    font-size: 0.875rem;
-}
-
-.blog-item__excerpt {
     color: $color_4;
     font-size: 0.875rem;
 }
 
+.blog-item__excerpt {
+    color: $color_3;
+    font-size: 0.875rem;
+}
+
 .blog-item__link {
-    &:hover {
-        .blog-item__image {
-            img {
-                transform: scale(1.25);
-                filter: saturate(1.5) contrast(90%);
-            }
-        }
-        .blog-item__post {
-            &::before {
-                background-color: $background_color_2;
-            }
-        }
-        .blog-item__title {
-            color: $color_2;
-        }
-        .blog-item__date {
-            color: $color_2;
-        }
-        .blog-item__excerpt {
-            color: $color_2;
-        }
-    }
+    &:hover,
     &:focus {
         .blog-item__image {
             img {
@@ -496,23 +450,19 @@ a {
         }
         .blog-item__post {
             &::before {
-                background-color: $background_color_2;
+                background-color: $background_color_1;
             }
         }
-        .blog-item__title {
-            color: $color_2;
-        }
-        .blog-item__date {
-            color: $color_2;
-        }
+        .blog-item__title,
+        .blog-item__date,
         .blog-item__excerpt {
-            color: $color_2;
+            color: $color_1;
         }
     }
 }
 
 .advantages {
-    background-color: $background_color_7;
+    background-color: #d8d8d8;
 }
 
 .advantages__image {
@@ -527,19 +477,24 @@ a {
 
 .advantage-item__icon {
     flex-grow: 0;
+}
+
+$color_1: #ee3b24;
+$color_2: #cbcbcb;
+.advantage-item__icon {
     i {
         margin-top: 7.5px;
         text-align: center;
-        color: $color_3;
+        color: $background_color_1;
     }
 }
 
 .footer {
     font-size: 0.875rem;
     h3 {
-        color: $color_6;
+        color: $color_5;
         &::first-letter {
-            color: $color_3;
+            color: $background_color_1;
         }
     }
     ul {
@@ -552,16 +507,19 @@ a {
             position: absolute;
             margin-left: -30px;
             content: "\f30b";
-            color: $color_7;
-            font-family: $font_family_3;
+            color: $color_1;
+            font-family: $font_family_2;
             font-weight: 900;
         }
     }
+}
+
+.footer {
     p {
-        color: $color_7;
+        color: $color_6;
     }
     a {
-        color: $color_7;
+        color: $color_6;
         &:hover {
             color: $color_2;
         }
@@ -574,13 +532,13 @@ a {
 .footer__top {
     padding-top: 45px;
     padding-bottom: 30px;
-    background-color: $background_color_8;
+    background-color: $background_color_4;
 }
 
 .footer__bottom {
     padding-top: 30px;
     padding-bottom: 30px;
-    background-color: $background_color_9;
+    background-color: $background_color_5;
 }
 
 @media (min-width: 576px) {
@@ -602,18 +560,10 @@ a {
 }
 
 @media (min-width: 768px) {
-    .features__description {
-        margin-bottom: 45px;
-    }
-    .gallery__description {
-        margin-bottom: 45px;
-    }
-    .blog__description {
-        margin-bottom: 45px;
-    }
-    .advantages__description {
-        margin-bottom: 45px;
-    }
+    .features__description,
+    .gallery__description,
+    .blog__description,
+    .advantages__description,
     .contacts__description {
         margin-bottom: 45px;
     }
@@ -622,8 +572,8 @@ a {
         width: 80px;
         height: 90px;
         margin: 30px auto 60px;
-        color: $color_8;
-        background: #ee3b24;
+        color: $color_7;
+        background: $background_color_1;
         font-size: 2rem;
         align-items: center;
         justify-content: center;
@@ -635,45 +585,20 @@ a {
 }
 
 @media (min-width: 992px) {
-    .about {
-        padding-top: 105px;
-        padding-bottom: 90px;
-    }
-    .features {
-        padding-top: 105px;
-        padding-bottom: 90px;
-    }
-    .gallery {
-        padding-top: 105px;
-        padding-bottom: 90px;
-    }
-    .blog {
-        padding-top: 105px;
-        padding-bottom: 90px;
-    }
-    .advantages__content {
-        padding-top: 105px;
-        padding-bottom: 90px;
-    }
+    .about,
+    .features,
+    .gallery,
+    .blog,
+    .advantages__content,
     .contacts {
         padding-top: 105px;
         padding-bottom: 90px;
     }
-    .about__title {
-        margin: 0 0 45px;
-    }
-    .features__title {
-        margin: 0 0 45px;
-    }
-    .gallery__title {
-        margin: 0 0 45px;
-    }
-    .blog__title {
-        margin: 0 0 45px;
-    }
-    .advantages__title {
-        margin: 0 0 45px;
-    }
+    .about__title,
+    .features__title,
+    .gallery__title,
+    .blog__title,
+    .advantages__title,
     .contacts__title {
         margin: 0 0 45px;
     }
@@ -688,13 +613,7 @@ a {
         }
         .nav-item {
             &:not(.active) {
-                &:hover {
-                    .nav-link {
-                        &::after {
-                            bottom: 10px;
-                        }
-                    }
-                }
+                &:hover,
                 &:focus {
                     .nav-link {
                         &::after {
@@ -705,7 +624,7 @@ a {
             }
         }
         padding: 15px 0;
-        background-color: $background_color_10;
+        background-color: $background_color_6;
     }
     .header-navbar--scrolled {
         .active {
@@ -716,7 +635,7 @@ a {
             }
         }
         padding: 0;
-        background-color: $background_color_11;
+        background-color: $background_color_7;
     }
     .progress {
         height: 20px;
@@ -751,13 +670,7 @@ a {
         }
         .nav-item {
             &:not(.active) {
-                &:hover {
-                    .nav-link {
-                        &::after {
-                            bottom: 4px;
-                        }
-                    }
-                }
+                &:hover,
                 &:focus {
                     .nav-link {
                         &::after {
@@ -767,7 +680,7 @@ a {
                 }
             }
         }
-        background-color: $background_color_11;
+        background-color: $background_color_7;
     }
     .header-navbar--scrolled {
         .active {
@@ -790,12 +703,12 @@ a {
     }
 }
 
+
+/**/
+
 @media (max-width: 991.8px) and (min-width: 576px) {
     .navbar-expand-lg {
-        >.container {
-            padding-right: 15px;
-            padding-left: 15px;
-        }
+        >.container,
         >.container-fluid {
             padding-right: 15px;
             padding-left: 15px;
@@ -804,45 +717,20 @@ a {
 }
 
 @media (max-width: 991.8px) and (min-width: 768px) {
-    .about {
-        padding-top: 105px;
-        padding-bottom: 75px;
-    }
-    .features {
-        padding-top: 105px;
-        padding-bottom: 75px;
-    }
-    .gallery {
-        padding-top: 105px;
-        padding-bottom: 75px;
-    }
-    .blog {
-        padding-top: 105px;
-        padding-bottom: 75px;
-    }
-    .advantages__content {
-        padding-top: 105px;
-        padding-bottom: 75px;
-    }
+    .about,
+    .features,
+    .gallery,
+    .blog,
+    .advantages__content,
     .contacts {
         padding-top: 105px;
         padding-bottom: 75px;
     }
-    .about__title {
-        margin: 0 0 37.5px;
-    }
-    .features__title {
-        margin: 0 0 37.5px;
-    }
-    .gallery__title {
-        margin: 0 0 37.5px;
-    }
-    .blog__title {
-        margin: 0 0 37.5px;
-    }
-    .advantages__title {
-        margin: 0 0 37.5px;
-    }
+    .about__title,
+    .features__title,
+    .gallery__title,
+    .blog__title,
+    .advantages__title,
     .contacts__title {
         margin: 0 0 37.5px;
     }
@@ -854,18 +742,10 @@ a {
 }
 
 @media (max-width: 767.8px) {
-    .features__description {
-        margin-bottom: 30px;
-    }
-    .gallery__description {
-        margin-bottom: 30px;
-    }
-    .blog__description {
-        margin-bottom: 30px;
-    }
-    .advantages__description {
-        margin-bottom: 30px;
-    }
+    .features__description,
+    .gallery__description,
+    .blog__description,
+    .advantages__description,
     .contacts__description {
         margin-bottom: 30px;
     }
@@ -874,8 +754,8 @@ a {
         width: 68px;
         height: 76.5px;
         margin: 25.5px auto 51px;
-        color: $color_8;
-        background: #ee3b24;
+        color: $color_7;
+        background: $background_color_1;
         font-size: 1.5rem;
         align-items: center;
         justify-content: center;
@@ -893,45 +773,20 @@ a {
 }
 
 @media (max-width: 767.8px) and (min-width: 576px) {
-    .about {
-        padding-top: 90px;
-        padding-bottom: 60px;
-    }
-    .features {
-        padding-top: 90px;
-        padding-bottom: 60px;
-    }
-    .gallery {
-        padding-top: 90px;
-        padding-bottom: 60px;
-    }
-    .blog {
-        padding-top: 90px;
-        padding-bottom: 60px;
-    }
-    .advantages__content {
-        padding-top: 90px;
-        padding-bottom: 60px;
-    }
+    .about,
+    .features,
+    .gallery,
+    .blog,
+    .advantages__content,
     .contacts {
         padding-top: 90px;
         padding-bottom: 60px;
     }
-    .about__title {
-        margin: 0 0 30px;
-    }
-    .features__title {
-        margin: 0 0 30px;
-    }
-    .gallery__title {
-        margin: 0 0 30px;
-    }
-    .blog__title {
-        margin: 0 0 30px;
-    }
-    .advantages__title {
-        margin: 0 0 30px;
-    }
+    .about__title,
+    .features__title,
+    .gallery__title,
+    .blog__title,
+    .advantages__title,
     .contacts__title {
         margin: 0 0 30px;
     }
@@ -943,45 +798,20 @@ a {
 }
 
 @media (max-width: 575.8px) {
-    .about {
-        padding-top: 90px;
-        padding-bottom: 45px;
-    }
-    .features {
-        padding-top: 90px;
-        padding-bottom: 45px;
-    }
-    .gallery {
-        padding-top: 90px;
-        padding-bottom: 45px;
-    }
-    .blog {
-        padding-top: 90px;
-        padding-bottom: 45px;
-    }
-    .advantages__content {
-        padding-top: 90px;
-        padding-bottom: 45px;
-    }
+    .about,
+    .features,
+    .gallery,
+    .blog,
+    .advantages__content,
     .contacts {
         padding-top: 90px;
         padding-bottom: 45px;
     }
-    .about__title {
-        margin: 0 0 22.5px;
-    }
-    .features__title {
-        margin: 0 0 22.5px;
-    }
-    .gallery__title {
-        margin: 0 0 22.5px;
-    }
-    .blog__title {
-        margin: 0 0 22.5px;
-    }
-    .advantages__title {
-        margin: 0 0 22.5px;
-    }
+    .about__title,
+    .features__title,
+    .gallery__title,
+    .blog__title,
+    .advantages__title,
     .contacts__title {
         margin: 0 0 22.5px;
     }
